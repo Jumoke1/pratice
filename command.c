@@ -1,9 +1,9 @@
 #include "monty.h"
 /**
  * opcode_functions - operations to perform
- * command: comand
- * stack: stack
- * line: line read
+ * @command: comand
+ * @stack: stack
+ * @line: line read
  * Return: nothing
  */
 void opcode_functions(char *command, stack_t **stack, unsigned int line)
@@ -18,7 +18,7 @@ void opcode_functions(char *command, stack_t **stack, unsigned int line)
 
 	for (j = 0; operations[j].opcode != NULL; j++)
 	{
-		if (strcmp(operations[j].opcode, command) == 0)
+		if (my_cmp(command, operations[j].opcode) == 1)
 		{
 			operations[j].f(stack, line);
 			return;
@@ -48,7 +48,7 @@ void pall(stack_t **stack, unsigned int line)
 	}
 }
 /**
- * _pint - prints the value at the top of the stack.
+ * pint - prints the value at the top of the stack.
  * @stack: Stack list
  * @line_number: Number of the line
  */

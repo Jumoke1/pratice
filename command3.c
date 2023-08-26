@@ -99,3 +99,29 @@ void rotl(stack_t **head,  __attribute__((unused)) unsigned int counter)
 	(*head)->prev = tmp;
 	(*head) = aux;
 }
+/**
+ * my_cmp - compares strings
+ * @src: source string
+ * @str: string to compare
+ * Return: int
+ */
+int my_cmp(const char *src, const char *str)
+{
+	int i;
+
+	if (src == NULL || str == NULL)
+		return (-1);
+	for (i = 0; src[i] != '\0'; i++)
+	{
+		if (src[i] == str[i])
+		{
+			if (str[i + 1] == '\0')
+				return (1);
+			continue;
+		}
+		return (-1);
+	}
+	if (str[i] == '\0')
+		return (1);
+	return (-1);
+}
